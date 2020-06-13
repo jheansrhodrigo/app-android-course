@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         startCourse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, DeveloperGuidesActivity.class);
+                Intent intent = new Intent(MainActivity.this, ChooseLanguageActivity.class);
                 startActivity(intent);
             }
         });
