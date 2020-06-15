@@ -1,30 +1,28 @@
 package com.example.cursoandroidnativo;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.List;
 
-import entities.Aula;
+import entities.AulaEntidade;
 
 public class DeveloperGuidesActivity extends AppCompatActivity {
 
     private LinearLayout getLinearLayoutAula(){
         String filter = "";
-        List<Aula> lista = Aula.buscaTodos(this, filter);
+        List<AulaEntidade> lista = AulaEntidade.buscaTodos(this, filter);
         Log.v("DB", "Items: "+String.valueOf(lista.size()));
         LinearLayout layout = new LinearLayout(this);
-        for (final Aula aula : lista) {
+        for (final AulaEntidade aula : lista) {
             layout.setPadding(0,0,0,60);
             layout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
             layout.setOrientation(LinearLayout.VERTICAL);//LinearLayout.HORIZONTAL
@@ -41,6 +39,7 @@ public class DeveloperGuidesActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     System.out.println("\nAcessar Aula\n");
                     Intent myIntent = new Intent(getBaseContext(), com.example.cursoandroidnativo.Aula.class);
+                    myIntent.putExtra("aula", aula);
                     startActivity(myIntent);
                 }
             });

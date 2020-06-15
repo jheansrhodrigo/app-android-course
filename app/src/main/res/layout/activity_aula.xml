@@ -28,11 +28,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/TituloAula"
+        android:id="@+id/tituloAula"
         android:layout_width="317dp"
         android:layout_height="34dp"
         android:layout_marginTop="16dp"
-        android:text="Titulo Aula"
+        android:text="titulo Aula"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.813"
         app:layout_constraintStart_toStartOf="parent"
