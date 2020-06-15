@@ -4,5 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DeveloperGuidesActivity"
-    android:background="@drawable/fundo_guia"/>
+    android:background="@drawable/fundo_guia">
+
+    <HorizontalScrollView
+        android:layout_width="386dp"
+        android:layout_height="710dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/linearLayoutAula"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical" />
+    </HorizontalScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

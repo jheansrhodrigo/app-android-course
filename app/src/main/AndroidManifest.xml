@@ -11,6 +11,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".ChooseLanguageActivity"></activity>
         <activity android:name=".DeveloperGuidesActivity" />
+        <activity android:name=".Aula" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
