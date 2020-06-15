@@ -4,6 +4,10 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.view.View;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.MediaController;
 import android.widget.TextView;
@@ -11,23 +15,38 @@ import android.widget.VideoView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import entities.AulaEntidade;
+import com.google.android.youtube.player.YouTubeBaseActivity;
+import com.google.android.youtube.player.YouTubeInitializationResult;
+import com.google.android.youtube.player.YouTubePlayer;
+import com.google.android.youtube.player.YouTubePlayerView;
 
-public class Aula extends AppCompatActivity {
+import entities.AulaEntidade;
+import entities.PlayerConfig;
+
+public class Aula extends YouTubeBaseActivity {
+    private TextView titulo;
+    private TextView descricao;
+    private YouTubePlayerView youTubePlayerView;
+    private Button button;
+    private YouTubePlayer.OnInitializedListener onInitializedListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aula);
+
         AulaEntidade aula = (AulaEntidade) getIntent().getSerializableExtra("aula");
 
-        TextView titulo = findViewById(R.id.tituloAula);
-        TextView descricao = findViewById(R.id.descricaoAula);
+        titulo = findViewById(R.id.tituloAula);
+        descricao = findViewById(R.id.descricaoAula);
+        youTubePlayerView = findViewById(R.id.viewVideoYoutube);
+        button = findViewById(R.id.buttonVideo);
+
         //CheckBox checkBox = findViewById(R.id.);
         titulo.setText(aula.getNome());
         descricao.setText(aula.getDescricao());
 
-        final VideoView videoView =  findViewById(R.id.videoAula);
+        /*final VideoView videoView =  findViewById(R.id.videoAula);
         MediaController mediacontroller = new MediaController(this);
         mediacontroller.setAnchorView(videoView);
         videoView.setMediaController(mediacontroller);
@@ -37,6 +56,25 @@ public class Aula extends AppCompatActivity {
         videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             public void onPrepared(MediaPlayer mp) {
                 videoView.start();
+            }
+        });*/
+
+        onInitializedListener = new YouTubePlayer.OnInitializedListener() {
+            @Override
+            public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
+                youTubePlayer.loadVideo("MnJEbS5p3kQ");
+            }
+
+            @Override
+            public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
+
+            }
+        };
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                youTubePlayerView.initialize(PlayerConfig.API_KEY, onInitializedListener);
             }
         });
     }
