@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
+import android.view.View;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -56,6 +57,13 @@ public class AulaEntidade implements Serializable {
         arrayParam[2]=aula.getUrl();
         arrayParam[3]=aula.getConcluido().toString();
         db.execSQL("insert into aula (nome, descricao, url, concluido) values(?,?,?,?)", arrayParam);
+    }
+
+    public static void concluirAula(Activity activity, AulaEntidade aula){
+        Log.i("Concluir ", aula.getNome());
+        SQLiteDatabase db = DAOSQLiteAula.getDBInstance(activity);
+
+        db.execSQL("update aula set concluido = 1 where nome = '"+aula.getNome()+"'");
     }
 
     public static void limparAgenda(Activity activity){
