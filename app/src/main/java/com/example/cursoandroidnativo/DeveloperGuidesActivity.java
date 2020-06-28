@@ -3,6 +3,8 @@ package com.example.cursoandroidnativo;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -25,13 +27,14 @@ public class DeveloperGuidesActivity extends AppCompatActivity {
         for (final AulaEntidade aula : lista) {
             layout.setPadding(0,0,0,60);
             layout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-            layout.setOrientation(LinearLayout.VERTICAL);//LinearLayout.HORIZONTAL
+            layout.setOrientation(LinearLayout.VERTICAL);
 
-            TextView tv = new TextView(this); ;
+            TextView tv = new TextView(this);
 
-            tv = new TextView(this);
+            //tv = new TextView(this);
             tv.setText(aula.getNome());
             tv.setTextSize(24);
+            tv.setTextColor(Color.WHITE);
             LinearLayout.LayoutParams p1 =  new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             tv.setLayoutParams(p1);
             tv.setOnClickListener(new View.OnClickListener() {
@@ -47,13 +50,19 @@ public class DeveloperGuidesActivity extends AppCompatActivity {
 
             CheckBox cb = new CheckBox(this);
             cb.setChecked(aula.getConcluido());
-            cb.setTextSize(24);
+            cb.setTextSize(20);
+
+            if(cb.isChecked()){
+                cb.setText("OK");
+            }
+
+            cb.setTextColor(Color.GREEN);
             cb.setEnabled(false);
             p1 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             cb.setLayoutParams(p1);
             layout.addView(cb);
-
         }
+
         return layout;
     }
 
@@ -62,7 +71,7 @@ public class DeveloperGuidesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_developer_guides);
 
-        final LinearLayout ll = (LinearLayout) findViewById(R.id.linearLayoutAula);
+        final LinearLayout ll = findViewById(R.id.linearLayoutAula);
         ll.addView(getLinearLayoutAula());
     }
 

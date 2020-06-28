@@ -30,7 +30,7 @@ public class ChooseLanguageActivity extends AppCompatActivity {
         kotlin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ChooseLanguageActivity.this, DeveloperGuidesActivity.class);
+                Intent intent = new Intent(ChooseLanguageActivity.this, DeveloperGuidesKotlinActivity.class);
                 startActivity(intent);
             }
         });

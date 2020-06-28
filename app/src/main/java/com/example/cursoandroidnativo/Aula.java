@@ -18,9 +18,12 @@ import entities.PlayerConfig;
 public class Aula extends YouTubeBaseActivity {
     private TextView titulo;
     private TextView descricao;
+    private TextView questao;
+    private TextView solucao;
     private YouTubePlayerView youTubePlayerView;
     private Button buttonPlay;
     private Button buttonConcluir;
+    private Button buttonSolucao;
     private YouTubePlayer.OnInitializedListener onInitializedListener;
 
     @Override
@@ -32,18 +35,21 @@ public class Aula extends YouTubeBaseActivity {
 
         titulo = findViewById(R.id.tituloAula);
         descricao = findViewById(R.id.descricaoAula);
+        questao = findViewById(R.id.questaoAula);
+        solucao = findViewById(R.id.solucaoAula);
         youTubePlayerView = findViewById(R.id.viewVideoYoutube);
         buttonPlay = findViewById(R.id.buttonVideo);
         buttonConcluir = findViewById(R.id.buttonConcluirAula);
+        buttonSolucao = findViewById(R.id.buttonSolucao);
 
         titulo.setText(aula.getNome());
         descricao.setText(aula.getDescricao());
-
+        questao.setText(aula.getPergunta());
 
         onInitializedListener = new YouTubePlayer.OnInitializedListener() {
             @Override
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
-                youTubePlayer.loadVideo("MnJEbS5p3kQ");
+                youTubePlayer.loadVideo(aula.getChave_url());
             }
 
             @Override
@@ -56,6 +62,13 @@ public class Aula extends YouTubeBaseActivity {
             @Override
             public void onClick(View v) {
                 youTubePlayerView.initialize(PlayerConfig.API_KEY, onInitializedListener);
+            }
+        });
+
+        buttonSolucao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                solucao.setText(aula.getResposta());
             }
         });
 

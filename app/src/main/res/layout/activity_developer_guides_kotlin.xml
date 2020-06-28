@@ -4,11 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".DeveloperGuidesKotlinActivity"
     android:background="@drawable/fundo_guia">
 
     <HorizontalScrollView
-        android:layout_width="378dp"
-        android:layout_height="700dp"
+        android:layout_width="386dp"
+        android:layout_height="710dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"

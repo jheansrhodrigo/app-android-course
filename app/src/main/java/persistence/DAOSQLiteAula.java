@@ -17,12 +17,35 @@ public class DAOSQLiteAula extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table aula (chave integer primary key autoincrement, nome varchar(100), descricao varchar(2000), url varchar(500), concluido bool)");
-        db.execSQL("insert into aula (nome, descricao, url, concluido) values('Aula 1 - Introdução','Explicação e conceituação sobre aplicações android e seu desenvolvimento','https://videocdn.bodybuilding.com/video/mp4/62000/62792m.mp4', 0)");
-        db.execSQL("insert into aula (nome, descricao, url, concluido) values('Aula 2 - Preparando o ambiente'," +
-                "'Passo a Passo para instalação do ambiente android e explicação sobre o seu funcionamento','https://www.youtube.com/watch?v=k0fNMXAfqFc', 0)");
-        db.execSQL("insert into aula (nome, descricao, url, concluido) values('Aula 3 - Criando o layout'," +
-                "'Explicando estrutura das activityes e como se montam as telas.','https://www.youtube.com/watch?v=k0fNMXAfqFc', 0)");
+        db.execSQL("create table aula (" +
+                "chave integer primary key autoincrement, " +
+                "nome varchar(100), " +
+                "descricao varchar(2000), " +
+                "chave_url varchar(500), " +
+                "concluido bool, " +
+                "pergunta varchar(1000), " +
+                "resposta varchar(1000))");
+        db.execSQL("insert into aula (nome, descricao, chave_url, concluido, pergunta, resposta) values(" +
+                "'Aula 1 - Introdução'," +
+                "'Explicação e conceitos sobre aplicações android e seu desenvolvimento.'," +
+                "'MnJEbS5p3kQ'," +
+                "0," +
+                "'Quais linguagens de programação disponíveis para criar App no Android Studio?'," +
+                "'Java ou Kotlin')");
+        db.execSQL("insert into aula (nome, descricao, chave_url, concluido, pergunta, resposta) values(" +
+                "'Aula 2 - Preparando o ambiente'," +
+                "'Passo a Passo para instalação do ambiente android e explicação sobre o seu funcionamento.'," +
+                "'MnJEbS5p3kQ'," +
+                "0," +
+                "'Quais linguagens de programação disponíveis para criar App no Android Studio?'," +
+                "'Java ou Kotlin')");
+        db.execSQL("insert into aula (nome, descricao, chave_url, concluido, pergunta, resposta) values(" +
+                "'Aula 3 - Criando o layout'," +
+                "'Explicando estrutura das activities e como se montam as telas.'," +
+                "'MnJEbS5p3kQ'," +
+                "0," +
+                "'Quais linguagens de programação disponíveis para criar App no Android Studio?'," +
+                "'Java ou Kotlin')");
     }
 
     @Override
