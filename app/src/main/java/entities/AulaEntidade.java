@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
-import android.view.View;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +11,6 @@ import java.util.List;
 import persistence.DAOSQLiteAula;
 
 public class AulaEntidade implements Serializable {
-
     private String nome;
     private String descricao;
     private String chave_url;
@@ -90,7 +87,7 @@ public class AulaEntidade implements Serializable {
         db.execSQL("update aula set concluido = 1 where nome = '"+aula.getNome()+"'");
     }
 
-    /*public static void limparAulas(Activity activity){
+    public static void limparAulas(Activity activity){
         SQLiteDatabase db = DAOSQLiteAula.getDBInstance(activity);
 
         db.execSQL("delete from aula");
@@ -100,7 +97,7 @@ public class AulaEntidade implements Serializable {
         SQLiteDatabase db = DAOSQLiteAula.getDBInstance(activity);
 
         db.execSQL("delete from aula where nome = '" + nome + "'");
-    }*/
+    }
 
     public static List<AulaEntidade> buscaTodos(Activity activity, String filter){
         String sqlWhere = "";
@@ -109,7 +106,7 @@ public class AulaEntidade implements Serializable {
             sqlWhere = " where upper(nome) like upper('%"+filter+"%') or upper(descricao) like upper('%"+filter+"%') ";
         }
 
-        ArrayList<AulaEntidade> lista= new ArrayList<AulaEntidade>();
+        ArrayList<AulaEntidade> lista= new ArrayList<>();
         Cursor cursor= DAOSQLiteAula.getDBInstance(activity).rawQuery("select " +
                 "nome," +
                 " descricao," +
