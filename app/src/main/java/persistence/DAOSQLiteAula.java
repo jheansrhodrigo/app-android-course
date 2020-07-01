@@ -36,7 +36,7 @@ public class DAOSQLiteAula extends SQLiteOpenHelper {
         db.execSQL("insert into aula (nome, descricao, chave_url, concluido, pergunta, resposta) values(" +
                 "'Aula 2 - Preparando o ambiente'," +
                 "'Passo a Passo para instalação do ambiente android e explicação sobre o seu funcionamento.'," +
-                "'MnJEbS5p3kQ'," +
+                "'g1Zq_nyc8DM'," +
                 "0," +
                 "'Quais linguagens de programação disponíveis para criar App no Android Studio?'," +
                 "'Java ou Kotlin')"
@@ -44,10 +44,15 @@ public class DAOSQLiteAula extends SQLiteOpenHelper {
         db.execSQL("insert into aula (nome, descricao, chave_url, concluido, pergunta, resposta) values(" +
                 "'Aula 3 - Criando o layout'," +
                 "'Explicando estrutura das activities e como se montam as telas.'," +
-                "'MnJEbS5p3kQ'," +
+                "'h9uPk-baha4'," +
                 "0," +
-                "'Quais linguagens de programação disponíveis para criar App no Android Studio?'," +
-                "'Java ou Kotlin')"
+                "'Apresente um exemplo de codigo para evento de botão.'," +
+                "'Button nextButton = (Button) findViewById(R.id.button);\n" +
+                "nextButton.setOnClickListener(new View.OnClickListener() {\n" +
+                "    @Override\n" +
+                "    public void onClick(View v) {\n" +
+                "      mCounter++;\n" +
+                "});')"
         );
 
         db.execSQL("create table aula_kotlin (" +
@@ -62,7 +67,7 @@ public class DAOSQLiteAula extends SQLiteOpenHelper {
         db.execSQL("insert into aula_kotlin (nome, descricao, chave_url, concluido, pergunta, resposta) values(" +
                 "'Aula 1 - Introdução'," +
                 "'Explicação e conceitos sobre aplicações android e seu desenvolvimento.'," +
-                "'MnJEbS5p3kQ'," +
+                "'QY1sjDoUW-o'," +
                 "0," +
                 "'Quais linguagens de programação disponíveis para criar App no Android Studio?'," +
                 "'Java ou Kotlin')"
@@ -70,7 +75,7 @@ public class DAOSQLiteAula extends SQLiteOpenHelper {
         db.execSQL("insert into aula_kotlin (nome, descricao, chave_url, concluido, pergunta, resposta) values(" +
                 "'Aula 2 - Preparando o ambiente'," +
                 "'Passo a Passo para instalação do ambiente android e explicação sobre o seu funcionamento.'," +
-                "'MnJEbS5p3kQ'," +
+                "'rb5DfI5L6fU'," +
                 "0," +
                 "'Quais linguagens de programação disponíveis para criar App no Android Studio?'," +
                 "'Java ou Kotlin')"
@@ -78,7 +83,7 @@ public class DAOSQLiteAula extends SQLiteOpenHelper {
         db.execSQL("insert into aula_kotlin (nome, descricao, chave_url, concluido, pergunta, resposta) values(" +
                 "'Aula 3 - Criando o layout'," +
                 "'Explicando estrutura das activities e como se montam as telas.'," +
-                "'MnJEbS5p3kQ'," +
+                "'DuMBzZcOcOQ'," +
                 "0," +
                 "'Quais linguagens de programação disponíveis para criar App no Android Studio?'," +
                 "'Java ou Kotlin')"
